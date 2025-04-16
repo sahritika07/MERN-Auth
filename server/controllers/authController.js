@@ -98,15 +98,19 @@ export const logout = async(req,res)=>{
 
 export const sendVerifyOtp = async(req,res)=>{
     try {
-        const {userId} = req.body;
+        // const {userId} = req.body;
+        const userId = req.userId;
         const user = await userModel.findById(userId);
+        if (!user) {
+            return res.json({ success: false, message: "User not found" });
+        }
         if(user.isAccountVerified){
             return res.json({success:false, message:"Account Already Verified"})
         }
         const otp = String(Math.floor(100000 + Math.random()* 900000))
 
         user.verifyOtp = otp;
-        user.verifyOtpExpireAt = Date.now()  + 24 * 60 * 6 * 1000
+        user.verifyOtpExpireAt = Date.now()  + 24 * 60 * 60 * 1000
 
         await user.save();
 
@@ -128,7 +132,8 @@ export const sendVerifyOtp = async(req,res)=>{
 
 
 export const verifyEmail = async(req,res)=>{
-    const {userId,otp}= req.body;
+    const userId = req.userId;          // from middleware
+    const { otp } = req.body; 
     if(!userId || !otp){
         return res.json({success:false, message:"Missing Details"})
     }
