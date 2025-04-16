@@ -10,10 +10,13 @@ const Login = () => {
         <h2 className='text-3xl font-semibold text-white text-center mb-3'>{state === 'Sign Up' ? 'Create account' :'Login'}</h2>
         <p className='text-center text-sm mb-6'>{state === 'Sign Up' ? 'Create your account' :'Login to your account!'}</p>
         <form >
-          <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'> 
+          {state === 'Sign Up' && (
+            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'> 
             <img src={assets.person_icon} />
             <input className='bg-transparent outline-none' type="text" placeholder='Full Name' required/>
           </div>
+          )}
+          
           <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'> 
             <img src={assets.mail_icon} />
             <input className='bg-transparent outline-none' type="email" placeholder='Email id' required/>
@@ -25,12 +28,17 @@ const Login = () => {
           <p className='mb-4 text-indigo-500 cursor-pointer'>Forgot Password?</p>
           <button className='w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white font-medium'>{state}</button>
         </form>
-        <p className='text-gray-400 text-center text-xs mt-4'>Already have an account? {'  '}
-          <span className='text-blue-400 cursor-pointer underline'>Login here</span>
+        {state === 'Sign Up' ? (
+          <p className='text-gray-400 text-center text-xs mt-4'>Already have an account? {'  '}
+          <span onClick={() => setState('Login')} className='text-blue-400 cursor-pointer underline'>Login here</span>
         </p>
-        <p className='text-gray-400 text-center text-xs mt-4'>Don't have an account? {'  '}
-          <span className='text-blue-400 cursor-pointer underline'>Sign Up </span>
+        ) : (
+          <p  className='text-gray-400 text-center text-xs mt-4'>Don't have an account? {'  '}
+          <span onClick={() => setState('Sign Up')} className='text-blue-400 cursor-pointer underline'>Sign Up</span>
         </p>
+        )}
+        
+        
       </div>
     </div>
   )
