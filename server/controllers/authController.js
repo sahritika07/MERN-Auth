@@ -171,7 +171,7 @@ export const isAuthenticated = async(req,res)=>{
 
 export const sendResetOtp = async(req,res)=>{
     const {email} = req.body;
-    if(!user){
+    if(!email){
         return res.json({success:false, message:"Email is required"})
     }
     try {
@@ -219,7 +219,7 @@ export const resetPassord = async (req,res)=>{
     if(user.resetOtpExpireAt < Date.now()){
         return res.json({success:false, message:'OTP Expired'})
     }
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await bcrypt.hash(newPassword, 10)
     user.password = hashedPassword;
     user.resetOtp ="";
     user.resetOtpExpireAt = 0;
