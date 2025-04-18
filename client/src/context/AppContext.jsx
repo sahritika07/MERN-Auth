@@ -4,6 +4,8 @@ import axios from 'axios'
 export const AppContext = createContext()
 
 export const AppContextProvider = (props) =>{
+
+    axios.defaults.withCredentials = true; // if we refresh the page , the browser will store the cookies which will display the user name only instaed of fedault values
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [isLoggedin, setIsLoggedin] = useState(false)
     const [userData, setUserData] = useState(false)
