@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react'
 import {assets} from '../assets/assets.js'
 import {useNavigate} from 'react-router-dom'
-import { AppContent } from '../context/AppContext.jsx'
+import { AppContext } from '../context/AppContext.jsx'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate()
   
-  const {backendUrl ,setIsLoggedin} = useContext(AppContent)
+  const {backendUrl ,setIsLoggedin} = useContext(AppContext)
 
 
   const [state, setState] = useState('Sign Up')
@@ -16,30 +16,33 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const onSubmitHandler = async(e)=>{
-     try {
-      e.preventDefault();
-      axios.defaults.withCredentials = true
+
+  const onSubmitHandler = async()=>{
+    try {
+      e.preventDefault();// prevent the browser to reload the page 
+      axios.defaults.withCredentials = true  //sending cookies
       if(state === 'Sign Up'){
-          const {data} = await axios.post(backendUrl + '/api/auth/register', {name,email,password})
-          if(data.success){
-            setIsLoggedin(true)
-            navigate('/')
-          }else{
-            toast.error(data.message)
-          }
-      }else{
-        const {data} = await axios.post(backendUrl + '/api/auth/login', {email,password})
+        const {data}= await axios.post(backendUrl + '/api/auth/register' , {name,email,password})
         if(data.success){
           setIsLoggedin(true)
           navigate('/')
-        }else{
+        }
+        else{
+          toast.error(data.message)
+        }
+      }else{
+        const {data}= await axios.post(backendUrl + '/api/auth/login' , {email,password})
+        if(data.success){
+          setIsLoggedin(true)
+          navigate('/')
+        }
+        else{
           toast.error(data.message)
         }
       }
-     } catch (error) {
-       toast.error(data.message)
-     }
+    } catch (error) {
+      toast.error(data.message)
+    }
   }
   
   return (
@@ -81,9 +84,7 @@ const Login = () => {
           <p  className='text-gray-400 text-center text-xs mt-4'>Don't have an account? {'  '}
           <span onClick={() => setState('Sign Up')} className='text-blue-400 cursor-pointer underline'>Sign Up</span>
         </p>
-        )}
-        
-        
+        )}       
       </div>
     </div>
   )
