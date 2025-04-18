@@ -17,12 +17,12 @@ const Login = () => {
   const [password, setPassword] = useState('')
 
 
-  const onSubmitHandler = async()=>{
+  const onSubmitHandler = async(e)=>{
     try {
       e.preventDefault();// prevent the browser to reload the page 
       axios.defaults.withCredentials = true  //sending cookies
       if(state === 'Sign Up'){
-        const {data}= await axios.post(backendUrl + '/api/auth/register' , {name,email,password})
+        const {data} = await axios.post(backendUrl + '/api/auth/register' , {name,email,password})
         if(data.success){
           setIsLoggedin(true)
           navigate('/')
@@ -41,7 +41,7 @@ const Login = () => {
         }
       }
     } catch (error) {
-      toast.error(data.message)
+      toast.error(error.response?.data?.message || error.message);
     }
   }
   
