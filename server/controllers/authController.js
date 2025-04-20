@@ -89,7 +89,7 @@ export const logout = async(req,res)=>{
             maxAge: 7 * 60 * 60 * 60 * 1000
         })
         
-        return res.json({success:true, meesagea: "Logged out"})
+        return res.json({success:true, meesage: "Logged out"})
 
     } catch (error) {
          return res.json({success:false, message:error.message}) 

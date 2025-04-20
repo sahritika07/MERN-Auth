@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { assets } from '../assets/assets.js'
 import { AppContext } from '../context/AppContext.jsx'
-import {useNavigate} from 'react-router-dom'
+import {Navigate, useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from 'axios'
 
@@ -24,15 +24,6 @@ const EmailVerify = () => {
     }
   }
 
-  // const handlePaste = (e) =>{
-  //   const paste = e.clipboardData.getData('text')
-  //   const pasteArray = paste.split('');
-  //   pasteArray.forEach((char,index)=>{
-  //     if(inputRefs.current[index]){
-  //       inputRefs.current[index].value = char;
-  //     }
-  //   })
-  // }
 
   const handlePaste = (e) => {
     e.preventDefault(); // prevent default paste behavior
@@ -45,10 +36,10 @@ const EmailVerify = () => {
     });
   
     // Focus next empty input (optional but improves UX)
-    const firstEmptyIndex = paste.length < 6 ? paste.length : 5;
-    if (inputRefs.current[firstEmptyIndex]) {
-      inputRefs.current[firstEmptyIndex].focus();
-    }
+    // const firstEmptyIndex = paste.length < 6 ? paste.length : 5;
+    // if (inputRefs.current[firstEmptyIndex]) {
+    //   inputRefs.current[firstEmptyIndex].focus();
+    // }
   };
 
   const onSubmitHandler = async(e) =>{
@@ -69,6 +60,7 @@ const EmailVerify = () => {
       toast.error(error.message)
     }
   }
+
 
   useEffect(()=>{
       isLoggedin && userData && userData.isAccountVerified && navigate('/')
@@ -98,6 +90,8 @@ const EmailVerify = () => {
         </div>
         <button className='w-full py-3 bg-gradient-to-r from-indigo-500 to-indigo-900 rounded-full'>Verify Email</button>
        </form>
+
+         
     </div>
   )
 }
