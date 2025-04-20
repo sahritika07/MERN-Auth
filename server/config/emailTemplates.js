@@ -1,3 +1,92 @@
+export const ACCOUNT_REGISTERED_TEMPLATE=`<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Email</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        color: #333333;
+      }
+      .header {
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      .content {
+        padding: 20px;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #777777;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <table class="email-container">
+        <tr>
+          <td class="header">
+            <h1>Welcome to Our Community!</h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="content">
+            <p>Hi {{email}}</p>
+            <p>
+              Thank you for joining us! We're excited to have you on board.
+              Whether you're here to explore, learn, or contribute, you're now
+              part of a vibrant and supportive community.
+            </p>
+            <p>
+              To get started, click the button below and complete your profile:
+            </p>
+            <a href="[Your Link Here]" class="button">Get Started</a>
+            <p>If you have any questions, feel free to reach out.</p>
+            <p>Cheers,<br />The Team</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="footer">
+            &copy; 2025 Your Company. All rights reserved.<br />
+            <a href="#">Unsubscribe</a>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+`
+
+
+
 export const EMAIL_VERIFY_TEMPLATE = `<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
