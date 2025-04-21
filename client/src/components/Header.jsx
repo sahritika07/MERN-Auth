@@ -8,14 +8,14 @@ const Header = () => {
   const {userData} = useContext(AppContext)
   return (
     <div className='flex flex-col items-center mt-20 px-4 text-center text-gray-800'>
-      <img src={assets.header_img} alt="" className='rounded-full w-36 h-36 mb-6 -mt-10' />
+      <img src={assets.header_img} alt="" className='rounded-full w-36 h-36 mb-6 -mt-10  border-2 border-purple-500' />
       
-      <h1 className='flex items-center gap-2 text-xl sm:text-3xl font-medium mb-2 '>Hey {userData ? userData.name : 'Tech Savvy'}! <img className='w-8 aspect-square' src={assets.hand_wave}/> </h1>
-      <h2 className="text-3xl sm:text-5xl font-semibold mb-4 font-['Times_New_Roman',serif]">Welcome to the Tech Zone!</h2>
-      <p className='mb-8 w-1/2 text-xl pl-10 pr-10'>We're excited to have you here. Explore, discover and enjoy everything about the tech world. Showcase your work, launch projects, find jobs, and connect with the most incredible people.</p>
-      <button className="border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all flex items-center gap-2">
+      <h1 className='flex items-center gap-2 text-lg sm:text-xl font-medium mb-2 '>Hey {userData ? userData.name : 'Tech Savvy'}! <img className='w-8 aspect-square' src={assets.hand_wave}/> </h1>
+      <h2 className="text-4.75xl sm:text-4.75xl font-semibold mb-4 font-['Times_New_Roman',serif] text-purple-700">Welcome to the Tech Zone!</h2>
+      <p className='mb-8 w-1/2 text-lg -mt-4 pl-20 pr-20'>We are excited to have you here. Explore, discover and enjoy everything about the tech world. Showcase your work, launch projects, find jobs & connect with the most creative and incredible people.</p>
+      <button className="border border-violet-600 rounded-full text-white px-8 py-2.5 bg-purple-500 hover:bg-purple-600 transition-all flex items-center gap-2">
   Get Started
-  <FaArrowRight />
+  <FaArrowRight className="invert brightness-0"/>
 </button>
 
     </div>
