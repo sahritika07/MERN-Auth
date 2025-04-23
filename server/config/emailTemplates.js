@@ -8,38 +8,39 @@ export const ACCOUNT_REGISTERED_TEMPLATE=`<!DOCTYPE html>
       body {
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
+        background-color: #7C3AED;
       }
       table {
         border-collapse: collapse;
       }
       .email-container {
-        max-width: 600px;
+       
+        max-width: 650px;
         margin: auto;
         background-color: #ffffff;
-        padding: 20px;
         font-family: Arial, sans-serif;
-        color: #333333;
+        font-size: 18px;
+        font-style: bold;
+
       }
       .header {
-        background-color: #4caf50;
-        color: white;
-        padding: 20px;
+
+        color: #7C3AED;
         text-align: center;
       }
       .content {
-        padding: 20px;
+        padding: 7px;
         font-size: 16px;
         line-height: 1.5;
       }
       .button {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
+        background-color: #7C3AED;
+        color: #ffffff;
         text-decoration: none;
         border-radius: 5px;
-        margin-top: 20px;
+        margin-top: 15px;
       }
       .footer {
         text-align: center;
@@ -47,6 +48,7 @@ export const ACCOUNT_REGISTERED_TEMPLATE=`<!DOCTYPE html>
         color: #777777;
         padding: 20px;
       }
+ 
     </style>
   </head>
   <body>
@@ -54,21 +56,20 @@ export const ACCOUNT_REGISTERED_TEMPLATE=`<!DOCTYPE html>
       <table class="email-container">
         <tr>
           <td class="header">
-            <h1>Welcome to Our Community!</h1>
+            <h1>Welcome to Tech Zone!</h1>
           </td>
         </tr>
         <tr>
           <td class="content">
-            <p>Hi {{email}}</p>
-            <p>
+            <p> 
+              Your account has been created with email id {{email}}.
               Thank you for joining us! We're excited to have you on board.
-              Whether you're here to explore, learn, or contribute, you're now
-              part of a vibrant and supportive community.
-            </p>
+              Whether you're here to explore, learn or contribute, you're now
+              part of a vibrant and supportive community.  </p>
             <p>
               To get started, click the button below and complete your profile:
             </p>
-            <a href="[Your Link Here]" class="button">Get Started</a>
+            <div class="button" >Get Started</div>
             <p>If you have any questions, feel free to reach out.</p>
             <p>Cheers,<br />The Team</p>
           </td>
