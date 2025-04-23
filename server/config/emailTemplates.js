@@ -29,7 +29,7 @@ export const ACCOUNT_REGISTERED_TEMPLATE=`<!DOCTYPE html>
         text-align: center;
       }
       .content {
-        padding: 3px;
+  
         font-size: 16px;
         line-height: 1.5;
       }
