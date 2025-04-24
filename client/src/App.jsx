@@ -16,6 +16,7 @@ const App = () => {
         <Route path='/email-verify' element={<EmailVerify/>}/>
         <Route path='/reset-password' element={<ResetPassword/>}/>
       
+      
       </Routes>
     </div>
   )
