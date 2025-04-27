@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import { AppContext } from '../context/AppContext'
 import { FaArrowRight } from 'react-icons/fa';
-import Particle from '../components/Particle.jsx';
+// import Particle from '../components/Particle.jsx';
 
 const Header = () => {
   const {userData} = useContext(AppContext)
